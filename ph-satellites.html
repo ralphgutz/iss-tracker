@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md">
+        
+        <div class="container-fluid">
+            
+            <a class="navbar-brand" href="#"><i class="fas fa-satellite"></i> PH SATELLITE TRACKER</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+                <i class="fas fa-bars" style="color: white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="diwata">DIWATA-2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="maya">MAYA-1</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="iss">ISS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <h3 id="satname"></h3>
+                <p>Satellite Catalog No. <span id="satid"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                <div id="map">
+
+                </div>
+                <i style="font-size: 13px;">Fetching data every 4 seconds.</i>
+            </div>
+
+            <div class="col-md-3">
+                <h4>Details:</h4>
+                <div class="card">
+                    <div class="card-header">Latitude</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <span id="lat"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">Longitude</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <span id="lon"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">Altitude</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <span id="alt"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">Velocity</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <span id="vel"><i>-- No Data --</i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <input type="checkbox" name="pause" id="pause" onclick="pauseFunc()">
+                <label for="pause">Pause</label>
+                &nbsp;
+                <input type="checkbox" name="center" id="center" onclick="get_position()">
+                <label for="center">Center Satellite</label>
+
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="js/ph-satellite-tracker.js"></script>
+</body>
+</html>

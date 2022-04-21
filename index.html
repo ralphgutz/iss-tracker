@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISS Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#"><i class="fas fa-satellite"></i> ISS Location Tracker</a>
+            <i class="float-right text-secondary">Note: Tracker fetches data every 2 seconds.</i>
+        </div>
+    </nav>
+    <div class="container mb-2">
+        <div class="row text-center">
+            <div class="col-12">
+                <h2>International Space Station</h2>
+                <p>Satellite Catalog No. 25544</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mb-2">
+        <div class="row">
+            <div class="col-md-9">
+                <div id="iss-map"></div>
+            </div>
+            <div class="col-md-3">
+                <h4>Details:</h4>
+                <div class="card">
+                    <div class="card-header">Latitude</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <span id="lat"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Longitude</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <span id="lon"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Altitude</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <span id="alt"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Velocity</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <span id="vel"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="pause" id="pause" onclick="pauseFunc()">
+                    <label class="form-check-label" for="pause">Pause</label>
+                </div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" name="center" id="center" onclick="getISS()">
+                    <label class="form-check-label" for="center">Center ISS</label>
+                </div>
+                <p>Know more about ISS <a href="https://www.nasa.gov/mission_pages/station/main/index.html">here</a>!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container-fluid">
+            <p class="text-secondary">© 2020 Raphael Gutierrez. Data from <a href="https://wheretheiss.at/">WHERE THE ISS AT?</a></p>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script src="js/iss-tracker.js"></script>
+</body>
+</html>
